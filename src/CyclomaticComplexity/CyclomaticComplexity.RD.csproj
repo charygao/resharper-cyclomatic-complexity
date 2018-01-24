@@ -8,24 +8,14 @@
 
   <PropertyGroup>
      <TargetFramework>net45</TargetFramework>
-     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
      <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
      <AssemblyName>JetBrains.ReSharper.Plugins.CyclomaticComplexity</AssemblyName>
      <RootNamespace>JetBrains.ReSharper.Plugins.CyclomaticComplexity</RootNamespace>
      <InstallationHive>Exp</InstallationHive>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;DEBUG;NET45;JET_MODE_ASSERT</DefineConstants>
-    <PlatformTarget>x86</PlatformTarget>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <PlatformTarget>x86</PlatformTarget>
-  </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="JetBrains.ReSharper.SDK" Version="2017.3.0" />
+    <PackageReference Include="JetBrains.Rider.SDK" Version="2017.3.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,6 +29,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>      
     </Page>
+          
+    <Compile Remove="Options\**" />
+          
+    <EmbeddedResource Remove="Options\**" />
+          
+    <None Remove="Options\**" />
+          
+    <Page Remove="Options\**" />
 
     <ThemedIconsXamlV3 Include="CyclomaticComplexityIcons\CyclomaticComplexity.xaml">
       <ThemeColumns>Gray;GrayDark;Color</ThemeColumns>
